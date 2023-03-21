@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
-  innerText:string = "hello productlist, you are working"
-  currentStyle={
-    color:"yellowgreen",
-    fontSize:"100px"
-  }
-  constructor() { }
+export class ProductListComponent implements AfterViewInit {
 
-  ngOnInit(): void {
+  selectedProduct = '';
+  @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
+
+  ngAfterViewInit(): void {
+    if (this.productDetail) {
+      console.log(this.productDetail.name);
+    }
+  }
+
+  onBuy(name:string) {
+    window.alert(`You just bought ${name}!`);
   }
 
 }

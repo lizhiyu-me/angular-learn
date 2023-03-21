@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDescComponent } from './product-desc/product-desc.component';
 import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 
@@ -10,6 +11,7 @@ import { ProductComponent } from './product/product.component';
   declarations: [
     ProductListComponent,
     ProductDescComponent,
+    ProductDetailComponent,
   ],
   imports: [
     CommonModule,
