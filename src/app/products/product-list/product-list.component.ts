@@ -8,12 +8,14 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 })
 export class ProductListComponent implements AfterViewInit {
 
-  selectedProduct = '';
+  selectedProduct = 'Microphone';
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
+  @ViewChild(ProductDetailComponent) productDetail1: ProductDetailComponent | undefined;
 
   ngAfterViewInit(): void {
-    if (this.productDetail) {
-      console.log(this.productDetail.name);
+    if (this.productDetail && this.productDetail1) {
+      console.log("this.productDetail name",this.productDetail.name);
+      console.log("this.productDetail1 name",this.productDetail1.name);
     }
   }
 
