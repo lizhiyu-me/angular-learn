@@ -8,7 +8,12 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 })
 export class ProductListComponent implements AfterViewInit {
 
-  selectedProduct = 'Microphone';
+  products=[
+    "Webcam",
+    "Microphone",
+    "Wireless KeyBoard",
+  ]
+  selectedProduct = '';
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
   @ViewChild(ProductDetailComponent) productDetail1: ProductDetailComponent | undefined;
 
