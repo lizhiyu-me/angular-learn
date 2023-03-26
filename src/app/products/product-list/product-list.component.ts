@@ -1,3 +1,4 @@
+import { Product } from './../../product';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
@@ -8,24 +9,34 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 })
 export class ProductListComponent implements AfterViewInit {
 
-  products=[
-    "Webcam",
-    "Microphone",
-    "Wireless KeyBoard",
+  products: Product[] = [
+    {
+      name: "Webcam",
+      price: 66
+
+    },
+    {
+      name: "Microphone",
+      price: 66
+
+    },
+    {
+      name: "Wireless KeyBoard",
+      price: 66
+
+    },
   ]
-  selectedProduct = '';
+  selectedProduct:Product|undefined;
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
-  @ViewChild(ProductDetailComponent) productDetail1: ProductDetailComponent | undefined;
 
   ngAfterViewInit(): void {
-    if (this.productDetail && this.productDetail1) {
-      console.log("this.productDetail name",this.productDetail.name);
-      console.log("this.productDetail1 name",this.productDetail1.name);
+    if (this.productDetail) {
+      console.log("this.productDetail product", this.productDetail.product);
     }
   }
 
-  onBuy(name:string) {
-    window.alert(`You just bought ${name}!`);
+  onBuy(selectedProduct: Product) {
+    window.alert(`You just bought ${selectedProduct.name}!`);
   }
 
 }

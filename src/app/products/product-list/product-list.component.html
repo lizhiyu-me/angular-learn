@@ -3,10 +3,10 @@
   <!-- <li (click)="selectedProduct = 'Webcam'">Webcam</li>
   <li (click)="selectedProduct = 'Microphone'">Microphone</li>
   <li (click)="selectedProduct = 'Wireless Keyboard'">Wireless Keyboard</li> -->
-  <li *ngFor="let product of products;let i = index;" (click)="selectedProduct=product">*{{i}}{{product}}</li>
+  <li *ngFor="let product of products;let i = index;" (click)="selectedProduct=product">*{{i}}{{product.name|uppercase}}</li>
 </ul>
 <!-- <app-product-detail #product *ngIf="selectedProduct;else noProduct"  [name]="selectedProduct" (bought)="onBuy($event)"> -->
-<app-product-detail *ngIf="selectedProduct;else noProduct"  #product  [name]="selectedProduct" (bought)="onBuy($event)">
+<app-product-detail *ngIf="selectedProduct;else noProduct"  #product  [product]="selectedProduct" (bought)="onBuy($event)">
 </app-product-detail>
 <ng-template #noProduct>
   <p>No product selected!</p>

@@ -1,3 +1,4 @@
+import { Product } from './../../product';
 import { Component, Input,OnInit, Output, EventEmitter, OnChanges, SimpleChanges, ViewEncapsulation,ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
@@ -12,13 +13,14 @@ export class ProductDetailComponent implements OnChanges,OnInit {
     console.log(`Name is ${this.name} in the constructor`);
   }
 
+  @Input() product:Product|undefined;
   @Input() name:string = '';
   @Output() bought = new EventEmitter();
   ngOnInit():void{
     console.log(`Name is ${this.name} in the ngOnInit`);
   }
   ngOnChanges(changes: SimpleChanges): void {
-    const product = changes['name'];
+    const product = changes['product'];
     console.log("changes ",changes);
     if (!product.isFirstChange()) {
       const oldValue = product.previousValue;
@@ -28,7 +30,7 @@ export class ProductDetailComponent implements OnChanges,OnInit {
   }
 
   buy() {
-    this.bought.emit(this.name);
+    this.bought.emit(this.product);
   }
 
   get productName(): string {
