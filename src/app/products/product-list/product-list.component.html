@@ -1,9 +1,9 @@
-<h2>Product List</h2>
+<h2>Product List</h2><p>{{today|date:'fullDate'}}</p>
 <ul>
   <!-- <li (click)="selectedProduct = 'Webcam'">Webcam</li>
   <li (click)="selectedProduct = 'Microphone'">Microphone</li>
   <li (click)="selectedProduct = 'Wireless Keyboard'">Wireless Keyboard</li> -->
-  <li *ngFor="let product of products;let i = index;" (click)="selectedProduct=product">*{{i}}{{product.name|uppercase}}</li>
+  <li *ngFor="let product of products | sort|slice:0:3;let i=index" (click)="selectedProduct=product">*{{i}}{{product.name|uppercase}}{{product|json}}</li>
 </ul>
 <!-- <app-product-detail #product *ngIf="selectedProduct;else noProduct"  [name]="selectedProduct" (bought)="onBuy($event)"> -->
 <app-product-detail *ngIf="selectedProduct;else noProduct"  #product  [product]="selectedProduct" (bought)="onBuy($event)">

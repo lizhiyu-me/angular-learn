@@ -4,6 +4,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDescComponent } from './product-desc/product-desc.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { SortPipe } from '../sort.pipe';
+import { Filter1Pipe } from './filter1.pipe';
 
 
 
@@ -12,6 +14,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductListComponent,
     ProductDescComponent,
     ProductDetailComponent,
+    SortPipe,
+    Filter1Pipe
   ],
   imports: [
     CommonModule,

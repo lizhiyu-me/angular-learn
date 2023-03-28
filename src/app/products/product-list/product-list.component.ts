@@ -26,6 +26,7 @@ export class ProductListComponent implements AfterViewInit {
 
     },
   ]
+  today:Date = new Date();
   selectedProduct:Product|undefined;
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
 
