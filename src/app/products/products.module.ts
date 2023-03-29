@@ -6,6 +6,8 @@ import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { SortPipe } from '../sort.pipe';
 import { Filter1Pipe } from './filter1.pipe';
+import { ProductHostDirective } from './product-host.directive';
+import { PersmissionDirective } from './persmission.directive';
 
 
 
@@ -15,7 +17,9 @@ import { Filter1Pipe } from './filter1.pipe';
     ProductDescComponent,
     ProductDetailComponent,
     SortPipe,
-    Filter1Pipe
+    Filter1Pipe,
+    ProductHostDirective,
+    PersmissionDirective
   ],
   imports: [
     CommonModule,

@@ -9,13 +9,14 @@ import { SortPipe } from './sort.pipe';
 import { filter } from 'rxjs';
 import { CopyrightDirective } from './copyright.directive';
 import { NumericDirective } from './numeric.directive';
+import { PersmissionDirective } from './products/persmission.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HousingListComponent,
     CopyrightDirective,
-    NumericDirective,
+    NumericDirective
   ],
   imports: [
     BrowserModule,
