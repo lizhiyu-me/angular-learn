@@ -16,7 +16,7 @@ import { PersmissionDirective } from './products/persmission.directive';
     AppComponent,
     HousingListComponent,
     CopyrightDirective,
-    NumericDirective
+    NumericDirective,
   ],
   imports: [
     BrowserModule,

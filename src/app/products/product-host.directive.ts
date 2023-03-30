@@ -12,7 +12,7 @@ export class ProductHostDirective implements OnInit {
   ngOnInit(): void {
     const productRef = this.vc.createComponent(ProductDetailComponent);
     productRef.setInput('product', {
-      name: 'Optical mouse',
+      name: 'Optical mouse1111',
       price: 130
     });
   }

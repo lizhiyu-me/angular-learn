@@ -4,11 +4,11 @@ import { Directive, Input, TemplateRef, ViewContainerRef, OnInit } from '@angula
   selector: '[appPersmission]'
 })
 export class PersmissionDirective implements OnInit {
-  @Input() appPermission: string[] = [];
+  @Input() appPersmission: string[] = [];
   private currentRole = 'agent';
   constructor(private tmplRef: TemplateRef<any>, private vc: ViewContainerRef) { }
   ngOnInit(): void {
-    if (this.appPermission.indexOf(this.currentRole) === -1) {
+    if (this.appPersmission.indexOf(this.currentRole) === -1) {
       this.vc.clear();
     } else {
       this.vc.createEmbeddedView(this.tmplRef);

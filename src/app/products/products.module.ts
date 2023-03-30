@@ -8,6 +8,7 @@ import { SortPipe } from '../sort.pipe';
 import { Filter1Pipe } from './filter1.pipe';
 import { ProductHostDirective } from './product-host.directive';
 import { PersmissionDirective } from './persmission.directive';
+import { TestDirectTempleteRefDirective } from './test-direct-templete-ref.directive';
 
 
 
@@ -19,7 +20,8 @@ import { PersmissionDirective } from './persmission.directive';
     SortPipe,
     Filter1Pipe,
     ProductHostDirective,
-    PersmissionDirective
+    PersmissionDirective,
+    TestDirectTempleteRefDirective
   ],
   imports: [
     CommonModule,
