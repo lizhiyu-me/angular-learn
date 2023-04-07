@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable, of, switchMap } from 'rxjs';
 import { ProductsService } from '../products.service';
 import { Product } from '../product';
-import { Observable, of, switchMap } from 'rxjs';
 
 @Injectable()
 export class ProductViewService {

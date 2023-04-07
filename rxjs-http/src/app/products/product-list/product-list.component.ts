@@ -1,27 +1,28 @@
-import { AfterViewInit, Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription, Observable } from 'rxjs';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 import { Product } from '../product';
 import { ProductsService } from '../products.service';
-import { Subscription, Subject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css'],
-  providers: [ProductsService]
+  styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit, AfterViewInit {
+export class ProductListComponent implements OnDestroy, OnInit, AfterViewInit {
 
   selectedProduct: Product | undefined;
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
-  products: Product[] = [];
   products$: Observable<Product[]> | undefined;
-
-  constructor(private productService: ProductsService) { }
   private productsSub: Subscription | undefined;
 
+  constructor(private productService: ProductsService) {}
+
+  ngOnDestroy(): void {
+    this.productsSub?.unsubscribe();
+  }
+
   ngOnInit(): void {
-    // this.products = this.productService.getProducts();
     this.getProducts();
   }
 
@@ -31,17 +32,12 @@ export class ProductListComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private getProducts() {
-    this.products$ = this.productService.getProducts();
-  }
-
-
   onBuy() {
     window.alert(`You just bought ${this.selectedProduct?.name}!`);
   }
 
-  ngOnDestroy(): void {
-    this.productsSub?.unsubscribe();
+  private getProducts() {
+    this.products$ = this.productService.getProducts();
   }
 
 }

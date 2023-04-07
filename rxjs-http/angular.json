@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rxjs": {
+    "rxjs-http": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rxjs",
+            "outputPath": "dist/rxjs-http",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "rxjs:build:production"
+              "browserTarget": "rxjs-http:build:production"
             },
             "development": {
-              "browserTarget": "rxjs:build:development"
+              "browserTarget": "rxjs-http:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rxjs:build"
+            "browserTarget": "rxjs-http:build"
           }
         },
         "test": {
@@ -96,6 +96,6 @@
     }
   },
   "cli": {
-    "analytics": "8f238bc9-07c5-4051-8102-95737418c18f"
+    "analytics": "be5db4db-d7b2-42eb-83a0-51fdf8c4e745"
   }
 }
