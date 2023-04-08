@@ -4,7 +4,9 @@
     {{product.name}}
   </li>
 </ul>
-<app-product-detail *ngIf="selectedProduct; else noProduct" [product]="selectedProduct" (bought)="onBuy()">
+<app-product-detail *ngIf="selectedProduct; else noProduct" [product]="selectedProduct"
+(bought)="onBuy()"
+[id]="selectedProduct.id">
 </app-product-detail>
 <ng-template #noProduct>
   <p>No product selected!</p>

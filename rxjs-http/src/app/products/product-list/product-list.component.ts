@@ -39,5 +39,4 @@ export class ProductListComponent implements OnDestroy, OnInit, AfterViewInit {
   private getProducts() {
     this.products$ = this.productService.getProducts();
   }
-
 }
