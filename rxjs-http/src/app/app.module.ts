@@ -4,12 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
-import { ProductCreateComponent } from './product-create/product-create.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProductCreateComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
+import { Product } from './../product';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
-import { Product } from '../product';
 import { ProductsService } from '../products.service';
 
 @Component({
@@ -13,10 +13,11 @@ export class ProductListComponent implements OnDestroy, OnInit, AfterViewInit {
 
   selectedProduct: Product | undefined;
   @ViewChild(ProductDetailComponent) productDetail: ProductDetailComponent | undefined;
-  products$: Observable<Product[]> | undefined;
+  // products$: Observable<Product[]> | undefined;
+  products: Product[] = [];
   private productsSub: Subscription | undefined;
 
-  constructor(private productService: ProductsService) {}
+  constructor(private productService: ProductsService) { }
 
   ngOnDestroy(): void {
     this.productsSub?.unsubscribe();
@@ -37,6 +38,18 @@ export class ProductListComponent implements OnDestroy, OnInit, AfterViewInit {
   }
 
   private getProducts() {
-    this.products$ = this.productService.getProducts();
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+    });
+  }
+
+  onAdd(product: Product) {
+    this.products!.push(product)
+  }
+
+
+  onDelete() {
+    this.products = this.products.filter(product => product !== this.selectedProduct);
+    this.selectedProduct = undefined;
   }
 }

@@ -1,0 +1,10 @@
+input {
+  margin-left: 16px;
+}
+
+
+.delete {
+  background-color: lightcoral;
+  color: white;
+  margin-left: 5px;
+}

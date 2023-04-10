@@ -10,7 +10,7 @@ import { ProductsService } from '../products.service';
 })
 export class ProductDetailComponent implements OnChanges {
 
-  constructor(private productService: ProductsService){
+  constructor(private productService: ProductsService) {
 
   }
   @Input() product: Product | undefined;
@@ -27,4 +27,16 @@ export class ProductDetailComponent implements OnChanges {
     this.bought.emit();
   }
 
+  changePrice(product: Product, price: number) {
+    this.productService.updateProduct(product.id, price).subscribe(() => {
+      alert('The price of ${product.name} was changed!');
+    });
+  }
+
+  @Output() deleted = new EventEmitter();
+  remove(product: Product) {
+    this.productService.deleteProduct(product.id).subscribe(() => {
+      this.deleted.emit();
+    });
+  }
 }
